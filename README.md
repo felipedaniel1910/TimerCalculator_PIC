@@ -5,4 +5,4 @@
 Program to calculate the counter time in PIC's and give the preloading (in hexadecimal).
 
 To generate the .exe program:
-pyinstaller --onefile --noconsole arquivo.py (using the library py installer - pip install pyinstaller)
+pyinstaller --onefile --noconsole arquivo.py (using the library PyInstaller - pip install pyinstaller)
