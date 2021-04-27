@@ -28,44 +28,36 @@ class Telapython:
             timer = float(self.values['timer'])
             timer = timer/1000
             
-            try:
-                if self.values['c8'] == True:
-                    bits = 8
-                elif self.values['c16'] == True:
+            
+            if self.values['c8'] == True:
+                bits = 8
+            elif self.values['c16'] == True:
                     bits = 16   
-            except: 
-                print('Selecione o numero de bits...')
-
-            try:
-                if self.values['p32'] == True:
-                    prescaler = 32
-                elif self.values['p64'] == True:
-                    prescaler = 64  
-                elif self.values['p128'] == True:
-                    prescaler = 128  
-                elif self.values['p256'] == True:
-                    prescaler = 256  
-            except: 
-                print('Selecione um valor de prescaler...')
-
-            try:
-                if self.values['f8'] == True:
-                    freq = 8e6
-                elif self.values['f10'] == True:
-                    freq = 10e6 
-                elif self.values['f16'] == True:
-                    freq = 16e6
-                elif self.values['f20'] == True:
-                    freq = 20e6 
-            except: 
-                print('Selecione um valor de frequência...')
+            
+            if self.values['p32'] == True:
+                prescaler = 32
+            elif self.values['p64'] == True:
+                prescaler = 64  
+            elif self.values['p128'] == True:
+                prescaler = 128  
+            elif self.values['p256'] == True:
+                prescaler = 256  
+           
+            if self.values['f8'] == True:
+                freq = 8e6
+            elif self.values['f10'] == True:
+                freq = 10e6 
+            elif self.values['f16'] == True:
+                freq = 16e6
+            elif self.values['f20'] == True:
+                freq = 20e6 
 
             carga = (timer-4*(1/freq)*prescaler*(2**bits))/-(4*(1/freq)*prescaler)
 
             carga = round(carga)
             carga = hex(carga)
 
-            print("\nTMR0H = ",carga[2:4].upper()," e TMR0L = ",carga[4:6].upper())
+            print("\n TMR0H = ",carga[2:4].upper()," e TMR0L = ",carga[4:6].upper())
 
 tela = Telapython()
 tela.iniciar()
